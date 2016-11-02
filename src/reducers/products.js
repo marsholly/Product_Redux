@@ -15,7 +15,7 @@ export default function products(state = initialState, action) {
         all: [...state.all, action.payload.product],
       });
     }
-    
+
     // case 'DELETE_TODO': {
     //   return state.filter( todo =>{
     //     return action.payload._id !== todo._id

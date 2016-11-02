@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as ProductActions from '../actions/ProductActions';
+// import * as ProductActions from '../actions/ProductActions';
 
 class ModifyProduct extends Component {
+
   render() {
     let { products } = this.props;
     console.log('products:', products);
@@ -20,12 +21,4 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    getAllProducts(products) {
-      dispatch(ProductActions.getAllProducts(products));
-    },
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ModifyProduct);
+export default connect(mapStateToProps)(ModifyProduct);

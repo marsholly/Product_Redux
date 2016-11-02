@@ -23,7 +23,7 @@ class NewProduct extends Component {
       salePrice,
       id: uuid(),
     };
-    ProductActions.createProduct(newProduct);
+    this.props.createProduct(newProduct);
     document.infoForm.reset();
   }
 
@@ -69,6 +69,12 @@ class NewProduct extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    products: state.products.all,
+  };
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     createProduct(product) {
@@ -77,4 +83,8 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapDispatchToProps)(NewProduct);
+export default connect(mapStateToProps, mapDispatchToProps)(NewProduct);
+
+
+// ProductActions.createProduct(); --> returns object with type and payload
+// this.props.createProduct(); --> dispatches object with type and payload to reducers (sends a message to the store)
