@@ -5,11 +5,17 @@ const initialState = {
 
 export default function products(state = initialState, action) {
   switch (action.type) {
-    case 'CREATE_PRODUCT': {
+    case 'RECEIVE_ALL_PRODUCTS': {
       return Object.assign({}, state, {
-        all: action.payload.product,
+        all: action.payload.products,
       });
     }
+    case 'CREATE_PRODUCT': {
+      return Object.assign({}, state, {
+        all: [...state.all, action.payload.product],
+      });
+    }
+    
     // case 'DELETE_TODO': {
     //   return state.filter( todo =>{
     //     return action.payload._id !== todo._id

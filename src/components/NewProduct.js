@@ -30,8 +30,8 @@ class NewProduct extends Component {
   render() {
     return (
       <div className="container">
-        <form name="infoForm" onSubmit={this.onSubmit}>
-          <div className="productForm">
+        <div className="productForm">
+          <form name="infoForm" onSubmit={this.onSubmit}>
             <TextField
               floatingLabelText="Product Name"
               fullWidth={true}  //eslint-disable-line
@@ -62,8 +62,8 @@ class NewProduct extends Component {
               fullWidth={true} //eslint-disable-line
               type="submit"
             />
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     );
   }

@@ -1,5 +1,4 @@
 export function createProduct(product) {
-  console.log('product:', product)
   return {
     type: 'CREATE_PRODUCT',
     payload: { product },
