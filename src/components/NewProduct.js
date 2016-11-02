@@ -1,30 +1,80 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as ABActions from '../actions/ABActions';
+import { TextField, RaisedButton } from 'material-ui';
+import uuid from 'uuid';
+import * as ProductActions from '../actions/ProductActions';
 
 class NewProduct extends Component {
+  constructor() {
+    super();
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    const productName = this.productName.getValue();
+    const supplier = this.supplier.getValue();
+    const quantity = this.quantity.getValue();
+    const salePrice = this.salePrice.getValue();
+    const newProduct = {
+      productName,
+      supplier,
+      quantity,
+      salePrice,
+      id: uuid(),
+    };
+    ProductActions.createProduct(newProduct);
+    document.infoForm.reset();
+  }
+
   render() {
-    let { x, todos } = this.props
     return (
       <div className="container">
-
+        <form name="infoForm" onSubmit={this.onSubmit}>
+          <div className="productForm">
+            <TextField
+              floatingLabelText="Product Name"
+              fullWidth={true}  //eslint-disable-line
+              ref={(productName) => { this.productName = productName; }}
+            /><br />
+            <TextField
+              floatingLabelText="Supplier"
+              fullWidth={true}  //eslint-disable-line
+              ref={(supplier) => { this.supplier = supplier; }}
+            /><br />
+            <TextField
+              type="number"
+              min="0"
+              floatingLabelText="Quantity"
+              fullWidth={true}  //eslint-disable-line
+              ref={(quantity) => { this.quantity = quantity; }}
+            /><br />
+            <TextField
+              type="number"
+              min="0"
+              floatingLabelText="Sale Price ($)"
+              fullWidth={true}  //eslint-disable-line
+              ref={(salePrice) => { this.salePrice = salePrice; }}
+            /><br /><br />
+            <RaisedButton
+              label="ADD"
+              backgroundColor="#B3E5FC"
+              fullWidth={true} //eslint-disable-line
+              type="submit"
+            />
+          </div>
+        </form>
       </div>
-    )
-  }
-};
-
-function mapStateToProps(state) {
-  return{
-    todos: state.todos
+    );
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    x(data) {
-      dispatch(createTodo(data));
+    createProduct(product) {
+      dispatch(ProductActions.createProduct(product));
     },
-  }
+  };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewProduct);
+export default connect(mapDispatchToProps)(NewProduct);

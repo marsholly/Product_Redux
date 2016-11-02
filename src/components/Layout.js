@@ -18,7 +18,7 @@ export default function Layout(props) {
           </form>
           <ul className="nav navbar-nav navbar-right">
             <li><Link to="/add">New Product</Link></li>
-            <li><Link to="/">Modify Products</Link></li>
+            <li><Link to="/modify">Modify Products</Link></li>
           </ul>
         </div>
       </nav>

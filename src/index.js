@@ -9,6 +9,7 @@ import store from './store';
 import Layout from './components/Layout';
 // import HomePage from './components/HomePage';
 import NewProduct from './components/NewProduct';
+import ModifyProduct from './components/ModifyProduct';
 
 injectTapEventPlugin();
 
@@ -20,6 +21,7 @@ render(
         <Route path="/" component={Layout}>
           {/* <IndexRoute component={HomePage} /> */}
           <Route path="add" component={NewProduct} />
+          <Route path="modify" component={ModifyProduct} />
         </Route>
       </Router>
     </MuiThemeProvider>

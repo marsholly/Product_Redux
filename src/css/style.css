@@ -5,3 +5,19 @@
 .rightItem {
   margin-right: -90px !important;
 }
+
+.productForm {
+  height:100%;
+  width:900px;
+  border:2px solid #3F51B5;
+  padding: 30px;
+  border-top-left-radius: 60px 90px;
+  border-bottom-right-radius: 60px 90px;
+  margin-top: 30px;
+  background-color: #C5CAE9;
+  -webkit-box-shadow: 3px 3px 3px;
+  -moz-box-shadow: 3px 3px 3px;
+  box-shadow: 3px 3px 3px;
+  margin-left: auto;
+  margin-right: auto;
+}
