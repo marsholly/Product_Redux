@@ -5,8 +5,10 @@ import { Provider } from 'react-redux';
 import { MuiThemeProvider } from 'material-ui';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import store from './store';
+
 import Layout from './components/Layout';
 // import HomePage from './components/HomePage';
+import NewProduct from './components/NewProduct';
 
 injectTapEventPlugin();
 
@@ -17,7 +19,7 @@ render(
       <Router history={browserHistory}>
         <Route path="/" component={Layout}>
           {/* <IndexRoute component={HomePage} /> */}
-
+          <Route path="add" component={NewProduct} />
         </Route>
       </Router>
     </MuiThemeProvider>
