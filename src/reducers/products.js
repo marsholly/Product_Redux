@@ -1,6 +1,7 @@
 const initialState = {
   all: [],
   one: [],
+  sort: [],
 };
 
 export default function products(state = initialState, action) {
@@ -20,14 +21,20 @@ export default function products(state = initialState, action) {
         all: state.all.filter(product => action.payload.id !== product.id),
       });
     }
-
-    // case 'UPDATE_TODO': {
-    //   const index = state.findIndex( todo =>{
-    //     return todo._id == action.payload._id;
-    //   });
-    //   const newState = [...state];
-    //   newState[index] = action.payload;
-    //   return newState;
+    case 'UPDATE_PRODUCT': {
+      return Object.assign({}, state, {
+        all: state.all.map((product) => {
+          if (product.id === action.payload.product.id) {
+            return action.payload.product;
+          }
+          return product;
+        }),
+      });
+    }
+    // case 'SORTING_BY_NAME': {
+    //   return Object.assign({}, state, {
+    //     sort:
+    //   }
     // }
     default:
       return state;

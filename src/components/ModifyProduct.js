@@ -13,7 +13,7 @@ class ModifyProduct extends Component {
       editSupplier: '',
       editQuantity: 0,
       editSalePrice: 0,
-      id:'',
+      editId: null,
     }
   }
 
@@ -25,7 +25,7 @@ class ModifyProduct extends Component {
       editSupplier: supplier,
       editQuantity: quantity,
       editSalePrice: salePrice,
-      id
+      editId: id,
     })
   };
 
@@ -38,16 +38,17 @@ class ModifyProduct extends Component {
   }
 
   updateProduct = () => {
-    const { id, editName, editSupplier, editQuantity, editSalePrice } = this.state;
+    const { editId, editName, editSupplier, editQuantity, editSalePrice } = this.state;
     let editProduct = {
       productName: editName,
       supplier: editSupplier,
       quantity: editQuantity,
       salePrice: editSalePrice,
-      id
+      id: editId,
     }
-    console.log('editProduct:', editProduct);
-    this.handleClose;
+    this.props.updateProduct(editProduct);
+    this.setState({editId: null});
+    this.handleClose();
   }
 
   render() {
@@ -65,6 +66,7 @@ class ModifyProduct extends Component {
       />,
     ];
     const { products } = this.props;
+    console.log('products:', products)
     let productsBlock;
     if (products) {
       productsBlock = products.map((product) => {
@@ -155,7 +157,7 @@ class ModifyProduct extends Component {
 
 function mapStateToProps(state) {
   return {
-    products: state.products.all,
+    products: state.products.all
   };
 }
 
