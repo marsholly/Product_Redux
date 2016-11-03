@@ -30,6 +30,8 @@
     "react-router": "^2.6.1",
     "react-tap-event-plugin": "^1.0.0",
     "redux": "^3.5.2",
+    "semantic-ui-css": "^2.2.4",
+    "semantic-ui-react": "^0.58.1",
     "uuid": "^2.0.3",
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",

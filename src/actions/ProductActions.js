@@ -11,3 +11,10 @@ export function getAllProducts(products) {
     payload: { products },
   };
 }
+
+export function removeProduct(id) {
+  return {
+    type: 'REMOVE_PRODUCT',
+    payload: { id },
+  };
+}

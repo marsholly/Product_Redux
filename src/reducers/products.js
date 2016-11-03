@@ -15,12 +15,12 @@ export default function products(state = initialState, action) {
         all: [...state.all, action.payload.product],
       });
     }
+    case 'REMOVE_PRODUCT': {
+      return Object.assign({}, state, {
+        all: state.all.filter(product => action.payload.id !== product.id),
+      });
+    }
 
-    // case 'DELETE_TODO': {
-    //   return state.filter( todo =>{
-    //     return action.payload._id !== todo._id
-    //   })
-    // }
     // case 'UPDATE_TODO': {
     //   const index = state.findIndex( todo =>{
     //     return todo._id == action.payload._id;
